@@ -126,12 +126,6 @@ app.post("/info",function(req, res){
         })
     });
 
-    var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
-    var server_host = process.env.YOUR_HOST || '0.0.0.0';
-    server.listen(server_port, server_host, function() {
-        console.log('Listening on port %d', server_port);
-    })
-
-// app.listen(process.env.port || 3000);
-
-// console.log('Running at Port 3000');
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("server started");
+})
