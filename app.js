@@ -10,21 +10,21 @@ app.use(express.static(__dirname + "/views"));
 
 //Set up mongoose connection
 
-// var mongoDB = 'mongodb+srv://utkarsh:worldcup2015@cluster0-lqkvp.mongodb.net/SGM_1?retryWrites=true&w=majority';
-// mongoose.connect(mongoDB, { useNewUrlParser: true });
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+var mongoDB = 'mongodb+srv://utkarsh:worldcup2015@cluster0-lqkvp.mongodb.net/SGM_1?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 
-// var userSchema = new mongoose.Schema({
-//     name: String,
-//     email: String,
-//     subject: String,
-//     message: String
-// });
+var userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    subject: String,
+    message: String
+});
 
-// var User = mongoose.model("User", userSchema);
+var User = mongoose.model("User", userSchema);
 
 
 
@@ -129,3 +129,6 @@ app.post("/info",function(req, res){
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("server started");
 })
+// app.listen(process.env.PORT || 3000, function(){
+//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+//   });
